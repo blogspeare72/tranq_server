@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "API Compliance OAUTH Parameters file",
+    "type": "object",
+    "additionalProperties" : false,
+    "required" : [
+	"authorize_endpoint",
+	"base_uri",
+	"callback_uri",
+	"client_id",
+	"client_secret",
+	"code",
+	"refresh_token",
+	"scope",
+	"token_endpoint"
+    ],
+    "properties" : {
+	"access_token" : {
+	    "type" : "string",
+	    "title": "Previously provided access token to the scope; access tokens are usually valid for a short period of time.  Tranquilize will use the token end point, refresh token or code to request a new access token, if required."
+	},
+	"authorize_endpoint" : {
+	    "type" : "string",
+	    "title": "The endpoint for authorization, which when combined with the base uri provides the concentrate absolute URI to authorize the client."
+	},
+	"base_uri" : {
+	    "type"   : "string", 
+	    "format" : "uri",
+	    "title"  : "The base URI of the authorization server."
+	},
+	"callback_uri" : {
+	    "type"   : "string", 
+	    "format" : "uri",
+	    "title"  : "The callback location for the OAUTH server to send the a new code, if needed."
+	},
+	"client_id" : {
+	    "type" : "string",
+	    "title": "The client application id known to the OAUTH server."
+	},
+	"client_secret" : {
+	    "type" : "string",
+	    "title": "The client secret, used to prove to the OAUTH server that this client can have a token."
+	},
+	"code" : {
+	    "type"   : "string",
+	    "title"  : "OAUTH Client code used to obtain the access token."
+	},
+	"refresh_token" : {
+	    "type" : "string",
+	    "title": "If the access token expires, Tranquilize will use the refresh token to fetch a new access token."
+	},
+	"scope" : {
+	    "type"   : "string",
+	    "title"  : "The scope or area of requested access; for Oracle this could correspond to a high level context, e.g., a group of functionally related resources."
+	},
+	"token_endpoint" : {
+	    "type"   : "string",
+	    "title"  : "The endpoint to access the token, which together with the base URI form the concentrate absolute URI to collect the authorization token."
+	}
+
+    }
+}

@@ -1,0 +1,145 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "definitions": {
+	   "stated_compliance": {
+                        "type": "array",
+                        "items": {
+                            "title": "manual",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "id","value"
+                            ]
+                        }
+},
+            
+  "triggering_standards": {
+                        "type": "array",
+                        "items": {
+                            "title": "manual",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "value"
+                            ]
+                        }
+                    }
+
+       
+},
+
+
+    "title": "API Metadata",
+    "type": "object",
+    "properties": {
+        "stated_compliance": { "$ref" : "#/definitions/stated_compliance" },
+        "contexts": {
+            "type:": "array",
+            "items": {
+                "title": "API Contexts",
+                "type": "object",
+                 "additionalProperties" : false ,
+                "properties": {
+	                "context": {
+		               "type": "string"
+	               },
+                    "stated_compliance": { "$ref" : "#/definitions/stated_compliance" },
+                    "triggering_standards": { "$ref" : "#/definitions/triggering_standards" },
+                    "versions": {
+                        "type:": "array",
+                        "items": {
+                            "title": "API Version",
+                            "type": "object",
+                            "additionalProperties" : false ,
+                            "properties": {
+                               "stated_compliance": { "$ref" : "#/definitions/stated_compliance" },
+                               "triggering_standards": { "$ref" : "#/definitions/triggering_standards" },
+                                "version": {"type":"string"},
+                                "resources": {
+                                    "type": "array",
+                                    "items": {
+                                        "title": "Resource",
+                                        "type": "object",
+                                       
+                                        "properties": {
+                                            "context": {
+                                                "type": "string"
+                                            },
+                                            "version": {
+                                                "type": "string"
+                                            },
+                                            "resource": {
+                                                "type": "string"
+                                            },
+                                            "resource_type": {
+                                                "type": "string",
+                                                "enum": ["singular","collection"]
+                                            },
+                                           "pagination_links_location": {
+                                                "type": "string",
+                                                "enum": ["header","body"]
+                                            },
+                                              "stated_compliance": { "$ref" : "#/definitions/stated_compliance" },
+                               "triggering_standards": { "$ref" : "#/definitions/triggering_standards" },
+                                            "parent_resource": {
+                                                "type": [
+                                                    "string",
+                                                    "null"
+                                                ]
+                                            },
+                                            "supported_operations": {
+                                                "type": "object"
+                                            },
+                                            "documented_uri": {
+                                                "type": "string"
+                                            },
+                                            "id_field": {
+                                                "type": "string"
+                                            },
+                                                "valid_id": {
+                                                "type": "string"
+                                            },
+                                            "boolean_fields":{
+	                                            "type": "array"
+                                            },
+                                            "user_fields":{
+	                                            "type": "array"
+                                            }
+                                        },
+                                        "required": [
+                                            "context",
+                                            "version",
+                                            "resource",
+                                            "resource_type",
+                                            "supported_operations",
+                                            "documented_uri",
+                                            "id_field"
+                                            
+                                        ],
+                                       "additionalProperties" : false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

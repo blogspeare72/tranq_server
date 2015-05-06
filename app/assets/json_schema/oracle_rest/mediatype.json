@@ -1,0 +1,1025 @@
+{
+
+  "$schema": "http://json-schema.org/draft-04/hyper-schema#",
+
+  "definitions": {
+
+    "instanceLink": {
+
+      "type": "object",
+
+      "description": "Metadata describing link description objects that MAY appear on json instance representation.",
+
+      "properties": {
+
+        "href": {
+
+          "description": "Either a URI [RFC3986] or a URI Template [RFC6570]. If the value is a URI Template then the \"templated\" property should be true.",
+
+          "type": "string"
+
+        },
+
+        "rel": {
+
+          "description": "The name of the link relation that consumer may lookup as a secondary key (in addition to the type property) to retrieve actual link details, e.g. href or profile",
+
+          "type": "string"
+
+        },
+
+        "templated":
+
+        {
+
+          "description": "Indicates the \"href\" property is a URI Template. If not specified, assume the \"href\" is a URI.",
+
+          "type": "boolean"
+
+        },
+
+        "mediaType":
+
+        {
+
+          "description": "media type (as defined by RFC 2046) describing the link target",
+
+          "type": "string"
+
+        },
+
+        "method":
+
+        {
+
+          "description": "method for requesting the target of the link (e.g. for HTTP this might be \"GET\" or \"DELETE\")",
+
+          "type": "string"
+
+        },
+
+        "profile":
+
+        {
+
+          "description": "Indiciates the json-schema describing the resource expected when derefencing the target resource",
+
+          "type": "string"
+
+        }
+
+      },
+
+      "required": ["href", "rel"]
+
+    },
+
+ 
+
+    "expandQueryParam": {
+
+      "description": "Return the child resource in addition to just links to the child resource. The value is a comma deliminated string and each token is a child resource name",
+
+      "type": "string"
+
+    },
+
+    "fieldsQueryParam": {
+
+      "description": "Restrict which fields shall be returned. The value is a comma delimited string and each token is a field name",
+
+      "type": "string"
+
+    },
+
+    "linksQueryParam": {
+
+      "type": "string",
+
+      "description": "Comma separated list of relation types to restrict payload's links to. Links of other relation types won't be returned. By defaults, all links are returned."
+
+    },
+
+ 
+
+    "singularQueryParams": {
+
+      "description": "Define the query parameters that can be used for a singular resource",
+
+      "type": "object",
+
+      "properties": {
+
+        "expand": {
+
+          "$ref": "#/definitions/expandQueryParam"
+
+        },
+
+        "fields": {
+
+          "$ref": "#/definitions/fieldsQueryParam"
+
+        },
+
+        "links": {
+
+          "$ref": "#/definitions/linksQueryParam"
+
+        }
+
+      }
+
+   },
+
+ 
+
+  "singularResource": {
+
+      "title": "Singular Resource",
+
+      "description": "A single entity resource",
+
+      "type": "object",
+
+      "properties": {
+
+        "links": {
+
+          "type": "array",
+
+          "items": {
+
+            "$ref": "#/definitions/instanceLink"
+
+          }
+
+        }
+
+      }
+
+    },
+
+ 
+
+    "collectionBaseResource": {
+
+      "allOf": [
+
+        {
+
+          "$ref": "#/definitions/singularResource"
+
+        }
+
+      ],
+
+      "title": "Collection Resource",
+
+      "description": "A collection resource schema definition. ",
+
+      "properties": {
+
+        "items": {
+
+          "type": "array",
+
+          "items": {
+
+            "type": "object"
+
+          }
+
+        }
+
+      }
+
+    },
+
+ 
+
+ 
+
+    "limitQueryParam": {
+
+      "type": "integer",
+
+      "description": "The requested page size, which limits the number of elements the collection should max return"
+
+    },
+
+    "offsetQueryParam": {
+
+      "type": "integer",
+
+      "description": "The offset of the page. By default, offset is 0, which means first page will be returned.",
+
+      "minimum":0,
+
+      "default":0
+
+    },
+
+    "fromIdQueryParam": {
+
+      "type": "integer",
+
+      "description": "Retrun the items with id is greater or equal to the given id"
+
+    },
+
+    "toIdQueryParam": {
+
+      "type": "integer",
+
+      "description": "Retrun the items with id is less than the given id"
+
+    },
+
+    "sinceQueryParam": {
+
+      "type": "string",
+
+      "format": "date-time",
+
+      "description": "Retrun the items that is modified or created after or at the given value"
+
+    },
+
+    "untilQueryParam": {
+
+      "type": "string",
+
+      "format": "date-time",
+
+      "description": "Retrun the items that is modified or created before the given value"
+
+    },
+
+    "qQueryParam": {
+
+      "type": "string",
+
+      "description": "Allows to specify one or more filtering criteria. By default, no filtering is applied."
+
+    },
+
+    "totalResultsQueryParam": {
+
+      "description": "Indicates whether or not to calculate the totalResults property. By default, totalResults is not calculated.",
+
+      "type": "boolean",
+
+      "default":false
+
+    },
+
+    "orderByQueryParam": {
+
+      "description": "Returns the count of elements as the given order. The value is a comma delimited string. Each token in the string is the name of the field, optionally followed by asc or desc. ",
+
+      "type": "string"
+
+    },
+
+ 
+
+    "totalResultsProp": {
+
+      "type": "integer",
+
+      "description": "capture the total count of the resource instances, which not only includes the instances in the current range, but all instances on the server that satisfy the request"
+
+    },
+
+    "limitProp": {
+
+      "type": "integer",
+
+      "description": "the actual paging size used by the server. "
+
+    },
+
+    "countProp": {
+
+      "type": "integer",
+
+      "description": "the number of resource instances returned in the current range"
+
+    },
+
+    "hasMoreProp": {
+
+      "type": "boolean",
+
+      "description": "Returns true if more resources are available on the server than the subset returned in current page."
+
+    },
+
+    "offsetProp": {
+
+      "type": "integer",
+
+      "description": "the offset used in the current page "
+
+    },
+
+ 
+
+    "collectionQueryParams": {
+
+      "description": "The query parameters can be used in a collection resource",
+
+      "type": "object",
+
+      "properties":
+
+      {
+
+        "expand": {
+
+          "$ref": "#/definitions/expandQueryParam"
+
+        },
+
+        "fields": {
+
+          "$ref": "#/definitions/fieldsQueryParam"
+
+        },
+
+        "limit": {
+
+          "$ref": "#/definitions/limitQueryParam"
+
+        },
+
+        "offset": {
+
+          "$ref": "#/definitions/offsetQueryParam"
+
+        },
+
+        "fromId": {
+
+          "$ref": "#/definitions/fromIdQueryParam"
+
+        },
+
+        "since": {
+
+          "$ref": "#/definitions/sinceQueryParam"
+
+        },
+
+        "until": {
+
+          "$ref": "#/definitions/untilQueryParam"
+
+        },
+
+        "q": {
+
+          "$ref": "#/definitions/qQueryParam"
+
+        },
+
+        "totalResults": {
+
+          "$ref": "#/definitions/totalResultsQueryParam"
+
+        },
+
+        "orderBy": {
+
+          "$ref": "#/definitions/orderByQueryParam"
+
+        },
+
+        "links": {
+
+          "$ref": "#/definitions/linksQueryParam"
+
+        }
+
+      }
+
+    },
+
+ 
+
+    "collectionPagedResource": {
+
+      "allOf": [
+
+        {
+
+          "$ref": "#/definitions/collectionBaseResource"
+
+        }
+
+      ],
+
+      "title": "Collection Paging Resource",
+
+      "description": "A collection resource that supports paging. ",
+
+      "properties": {
+
+        "hasMore": {
+
+          "$ref": "#/definitions/hasMoreProp"
+
+        },
+
+        "totalResults": {
+
+          "$ref": "#/definitions/totalResultsProp"
+
+        },
+
+        "limit": {
+
+          "$ref": "#/definitions/limitProp"
+
+        },
+
+        "count": {
+
+          "$ref": "#/definitions/countProp"
+
+        },
+
+        "offset": {
+
+          "$ref": "#/definitions/offsetProp"
+
+        }
+
+      }
+
+    },
+
+ 
+
+    "exceptionDetailType": {
+
+      "title": "Error Detail",
+
+      "description": "Used to capture the error detail during REST calls",
+
+      "type": "object",
+
+      "properties": {
+
+        "type": {
+
+          "type": "string",
+
+          "description": "An absolute URI [RFC3986] that identifies the problem type.  When dereferenced, it SHOULD provide human-readable documentation for the problem type (e.g., using HTML)."
+
+         },
+
+        "title": {
+
+          "type": "string",
+
+          "description": "A short, human-readable summary of the problem type.  It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localisation."
+
+        },
+
+        "status": {
+
+          "type": "integer",
+
+          "description": "The HTTP status code set by the origin server for this occurrence of the problem."
+
+        },
+
+        "detail": {
+
+          "type": "string",
+
+          "description": "An human readable explanation specific to this occurrence of the problem."
+
+        },
+
+        "instance": {
+
+          "type": "string",
+
+          "description": "An absolute URI that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced."
+
+        },
+
+        "o:errorCode": {
+
+          "type": "string",
+
+          "description": "application error code, which is different from HTTP error code"
+
+        },
+
+        "o:errorPath": {
+
+          "type": "string",
+
+          "description": "path to the problem, it could be at a resource level, or maybe at property level"
+
+        },
+
+        "o:errorDetails": {
+
+          "description": "contains details of the error message. This is basically a hierarchical tree structure.",
+
+          "type": "array",
+
+          "items": {"$ref": "#/definitions/exceptionDetailType"}
+
+        }
+
+      },
+
+      "required": ["type", "title"]
+
+    },
+
+ 
+
+    "statusResource": {
+
+      "title": "Job Status",
+
+      "description": "It is used to describe a long running job's status",
+
+      "type": "object",
+
+      "allOf": [
+
+       {"$ref": "#/definitions/singularResource"}
+
+      ],
+
+      "properties": {
+
+        "startTime": {
+
+          "type": "string",
+
+          "format": "date-time",
+
+          "description": "Time when the job started"
+
+         },
+
+        "endTime": {
+
+          "type": "string",
+
+          "format": "date-time",
+
+          "description": "Time when the job finished"
+
+         },
+
+        "progress": {
+
+          "enum": ["success", "failed", "processing", "pending"],
+
+          "description": "The current progress of the job"
+
+         },
+
+        "completed": {
+
+          "type": "boolean",
+
+          "description": "Whether the job is completed or not"
+
+         },
+
+        "requestStatus": {
+
+          "type": "number",
+
+          "description": "HTTP status code of the original request. This is not the polling request's status. Value is available only after the request is completed."
+
+        },
+
+        "message": {
+
+          "type": "string",
+
+          "description": "Human readable message about the current processing status. This is something can be used to communicate to the end user."
+
+        },
+
+        "completedPercentage": {
+
+          "type": "number",
+
+          "description": "A number between 0 and 100, capturing how much of the process has been completed."
+
+        },
+
+        "intervalToPoll": {
+
+          "type": "number",
+
+          "description": "A number in milliseconds, as a hint to the client on how long the client should wait before checking the status again"
+
+        },
+
+        "error": {
+
+          "$ref": "#/definitions/exceptionDetailType",
+
+          "description": "contains error detail of the original request. This is only available when the original request is processed and failed."
+
+        }
+
+      },
+
+      "required": ["progress"]
+
+    },
+
+ 
+
+    "opType": {
+
+      "type": "object",
+
+      "properties": {
+
+        "code": {
+
+          "$ref": "http://json-schema.org/draft-04/schema#/definitions/stringArray",
+
+          "description": "what strings are used in this custom query format to represent an operator"
+
+        },
+
+        "types": {
+
+          "type": "array",
+
+          "items": {
+
+            "$ref": "http://json-schema.org/draft-04/schema#/definitions/simpleTypes"
+
+          },
+
+          "description": "what types of properties are applicable for this operator. For example, startWith applies to string only"
+
+        },
+
+        "description": {
+
+          "type": "string",
+
+          "description": "provide description about what this operator does"
+
+        },
+
+        "example": {
+
+          "type": "string",
+
+          "description": "provide example for how to use this operator"
+
+        }
+
+      }
+
+    },
+
+    "searchFormResource": {
+
+      "title": "Search form resource",
+
+      "description": "It is used to describe query syntax",
+
+      "type": "object",
+
+      "allOf": [
+
+       {"$ref": "#/definitions/singularResource"}
+
+      ],
+
+     "properties": {
+
+        "syntax": {
+
+          "type": "object",
+
+          "properties": {
+
+            "operators": {
+
+                "type": "object",
+
+                "description": "defines the operators supported by the custom query format",
+
+                "properties": {
+
+                  "eq": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "equal"
+
+                  },
+
+                  "ne": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "not equal"
+
+                  },
+
+                  "gt": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "greater"
+
+                  },
+
+                  "lt": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "less than"
+
+                  },
+
+                  "ge": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "greater or equal"
+
+                  },
+
+                  "le": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "less than or equal"
+
+                  },
+
+                  "co": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "contains"
+
+                  },
+
+                  "sw": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "startWith"
+
+                  },
+
+                  "ew": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "end with"
+
+                  },
+
+                  "pr": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "is not null"
+
+                  }
+
+                }
+
+            },
+
+            "logicalOperators": {
+
+              "type": "object",
+
+              "description": "defines the logical operators supported",
+
+              "properties": {
+
+                "and": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "logical and"
+
+                },
+
+                "or": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "logical or"
+
+                },
+
+                "not": {
+
+                    "$ref": "#/definitions/opType",
+
+                    "description": "logical not"
+
+                }
+
+              }
+
+            },
+
+            "termDeliminator": {
+
+              "$ref": "http://json-schema.org/draft-04/schema#/definitions/stringArray",
+
+              "description": "what strings can be used to separate predicate."
+
+           },
+
+           "precedenceGrouping": {
+
+               "type": "string",
+
+               "description": "what string can be used to grouping terms"
+
+           }
+
+          }
+
+        },
+
+        "propertyOperators": {
+
+           "type": "object",
+
+           "description": "what operators can be applied for a particular property"
+
+        }
+
+      },
+
+      "required": ["syntax"],
+
+      "additionalProperties": false
+
+    },
+
+ 
+
+    "createFormResource": {
+
+      "title": "A create-form resource",
+
+      "description": "Used as a template to create a new resource. The resource contain properties with default values",
+
+      "type": "object",
+
+      "allOf": [
+
+       {"$ref": "#/definitions/singularResource"}
+
+      ]
+
+    },
+
+ 
+
+    "editFormResource": {
+
+      "title": "An edit-form resource",
+
+      "description": "Used as a template to update a resource. The resource contain properties that can be modified.",
+
+      "type": "object",
+
+      "allOf": [
+
+       {"$ref": "#/definitions/singularResource"}
+
+      ]
+
+    },
+
+ 
+
+   "order": {
+
+     "allOf": [
+
+       {"$ref": "#/definitions/singularResource"},
+
+       {
+
+         "title": "A purchase order",
+
+         "properties": {
+
+           "orderId": {"type": "number"},
+
+           "description": {"type": "string"},
+
+           "status": {"type": "string"},
+
+           "lines": {
+
+             "type": "object"
+
+           }
+
+         },
+
+         "links": [
+
+           {
+
+             "href": "self",
+
+             "rel": "http://example.com/orders/{orderId}",
+
+             "schema": {
+
+               "$ref": "#/definitions/singularQueryParams"
+
+             }
+
+           }
+
+         ]
+
+       }
+
+     ]
+
+   },
+
+ 
+
+   "orders": {
+
+     "allOf": [
+
+       {"$ref": "#/definitions/collectionPagedResource"},
+
+       {
+
+         "title": "Purchase Orders",
+
+         "properties": {
+
+           "items": {
+
+             "items": {
+
+               "$ref": "#/definitions/order"
+
+             }
+
+            }
+
+         },
+
+         "links": [
+
+           {
+
+             "href": "instances",
+
+             "rel": "http://example.com/orders",
+
+             "schema": {
+
+               "$ref": "#/definitions/collectionQueryParams"
+
+             }
+
+           }
+
+         ]
+
+       }
+
+     ]
+
+   }
+
+  }
+
+ 
+
+}

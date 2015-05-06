@@ -1,0 +1,12 @@
+{
+  "base_uri": "https://gatekeeper.staging.cloud.vitrue.com",
+  "client_id": "81f88983a6b640e651d5d0774409bb1985f502fffc79f8081f31421b19342bf3",
+  "client_secret": "ec7df24010268a1e3d7ada2c6fd2d3e79093583d98029ea0d04ad0311a6ad94c",
+  "callback_uri": "http://localhost:3000/gatekeeper/callback",
+  "authorize_endpoint": "/oauth/authorize",
+  "token_endpoint": "/oauth/token",
+  "scope": "admin",
+  "access_token": "c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb",
+  "refresh_token": "851d0276594bad2aa53e617f941a8bf86883ca53c54e6d78e9e0f6de5e779817",
+  "code": "030f489ea27960695aaa14df96bc59c1113e61c6420311a3eb82adffd9d6d998"
+}

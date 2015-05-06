@@ -1,0 +1,192 @@
+class RunsController < ApplicationController
+  # GET /runs
+  # GET /runs.json
+  def index
+    @runs = Run.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @runs }
+    end
+  end
+
+  # Will change this method in the end back to run
+  # but currently will try to run the checks in the
+  # background using the same code as we had for the
+  # tranq command line program
+  def execute
+    # Find the run
+
+    @run = Run.find(params[:id])
+    # From the run we can calculate the control
+    # file name
+    
+    control_file_name = "#{Run::OUTPUT}/#{@run.id}/#{@run.id}_control.json"
+
+    # modify control file to point to the locations
+    # that the oauth and metadata files will be
+    # all paths other than run_root are relative
+    # to the run root file
+
+    control_file = JSON.parse(@run.control_file)
+    control_file['run_root'] = "#{Run::OUTPUT}"
+    control_file['oauth_file']="/#{@run.id}/#{@run.id}_oauth.json"
+    control_file['api_descriptor_file']="/#{@run.id}/#{@run.id}_api_descriptor.json"
+    control_file['output_directory'] = "/#{@run.id}"
+ 
+    # If we have a previous run for this run id,
+    # ensure we keep the output directory -- this
+    # renames the directory to run id _ some time
+    # stamp
+
+    File.rename("#{Run::OUTPUT}/#{@run.id}/",
+                "#{Run::OUTPUT}/#{@run.id}_#{Time.now().to_i.to_s}") if File.exists?("#{Run::OUTPUT}/#{@run.id}/")
+
+    # create the appropriate directory, if necessary and 
+    # write run, metadata and oauth file to execution directory
+
+    Dir.mkdir("#{Run::OUTPUT}/#{@run.id}/") if !File.exists?("#{Run::OUTPUT}/#{@run.id}/")
+    File.write(control_file_name,JSON.pretty_generate(control_file))
+    File.write("#{Run::OUTPUT}/#{@run.id}/#{@run.id}_api_descriptor.json",@run.api_descriptor)
+    File.write("#{Run::OUTPUT}/#{@run.id}/#{@run.id}_oauth.json",@run.oauth)
+
+    # Finally mark the 
+
+    @run.status = 'Running'
+    @run.save
+
+    tw = TranquilizeWorker.new
+    tw.perform(@run.id)
+
+#    TranquilizeWorker.perform_async(@run.id)
+    redirect_to :action=>'index'
+  end
+
+  def duplicate
+    @run = Run.find(params[:id])
+    @duplicate = @run.dup
+    @duplicate.name = "#{@duplicate.name}[copy]"
+    @duplicate.status = Run::RUN_STATUS['CREATED']
+    @duplicate.save
+    redirect_to :action=>'index'
+  end
+  def run
+    @run = Run.find(params[:id])
+    
+
+   
+# modify control file to point to the locations that the oauth and metadata files will be
+    control_file = JSON.parse(@run.control_file)
+    control_file['oauth_file']="/#{@run.id}/#{@run.id}_oauth.json"
+    control_file['api_descriptor_file']="/#{@run.id}/#{@run.id}_api_descriptor.json"
+    control_file['run_root'] = "#{Run::OUTPUT}"
+    control_file['output_directory'] = "/#{@run.id}"
+ # write run, metadata and oauth file to execution directory
+
+    control_file_name = "#{Run::OUTPUT}/#{@run.id}/#{@run.id}_control.json"
+
+    File.rename("#{Run::OUTPUT}/#{@run.id}/","#{Run::OUTPUT}/#{@run.id}_#{Time.now().to_i.to_s}")  if File.exists?("#{Run::OUTPUT}/#{@run.id}/")
+    Dir.mkdir("#{Run::OUTPUT}/#{@run.id}/") if !File.exists?("#{Run::OUTPUT}/#{@run.id}/")
+    File.write(control_file_name,JSON.pretty_generate(control_file))
+
+    File.write("#{Run::OUTPUT}/#{@run.id}/#{@run.id}_api_descriptor.json",@run.api_descriptor)
+ 
+    File.write("#{Run::OUTPUT}/#{@run.id}/#{@run.id}_oauth.json",@run.oauth)
+
+
+
+    @run.status = 'Running'
+    @run.save
+
+#    tranqcli = Rails.root.join('..','tranq','bin','tranq')
+#    command = "export TRANQ_HOME=#{tranqhome} ; #{tranqcli} #{Run::OUTPUT}/#{@run.id}/#{@run.id}_control.json #{@run.id}"
+#    puts "this is the command to execute: #{command}"
+#    Bundler.with_clean_env do 
+#    `#{command}`
+#    end
+    
+    FlowHelper.process(control_file_name, @run.id,Rails.root.join('..','tranq','tranq_home'))
+
+# we also need to read back the Oauth file because it may have been written with a new access token / refresh token
+    oauth_new = File.read("#{Run::OUTPUT}/#{@run.id}/#{@run.id}_oauth.json")
+    @run.oauth = oauth_new
+    
+
+    @run.status = 'Completed'
+    @run.save
+  
+
+    redirect_to :action=>'index'
+  end
+
+  # GET /runs/1
+  # GET /runs/1.json
+  def show
+    @run = Run.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @run }
+    end
+  end
+
+  # GET /runs/new
+  # GET /runs/new.json
+  def new
+    @run = Run.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @run }
+    end
+  end
+
+  # GET /runs/1/edit
+  def edit
+    @run = Run.find(params[:id])
+  end
+
+  # POST /runs
+  # POST /runs.json
+  def create
+    @run = Run.new(params[:run])
+    @run.status=Run::RUN_STATUS['CREATED']
+    respond_to do |format|
+      if @run.save
+        format.html { redirect_to @run, notice: 'Run was successfully created.' }
+        format.json { render json: @run, status: :created, location: @run }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @run.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /runs/1
+  # PUT /runs/1.json
+  def update
+    @run = Run.find(params[:id])
+
+    respond_to do |format|
+      if @run.update_attributes(params[:run])
+        format.html { redirect_to @run, notice: 'Run was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @run.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /runs/1
+  # DELETE /runs/1.json
+  def destroy
+    @run = Run.find(params[:id])
+    @run.destroy
+
+    respond_to do |format|
+      format.html { redirect_to runs_url }
+      format.json { head :no_content }
+    end
+  end
+end

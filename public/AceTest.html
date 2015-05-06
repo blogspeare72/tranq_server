@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <style type="text/css" media="screen">
+      textarea {
+        display : block;
+        margin: auto;
+        width: 600px;
+        height: 5px;
+      }
+      #editor_div {
+        display: block;
+        margin: auto;
+        width: 600px;
+        height: 300px;
+        border: 1px solid #888;
+      }
+      form {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>This will test an Ace Editor</h3>
+    <div id="rubycode"></div>
+    <form action="/AceTest" method="post">
+      <br>
+      <textarea name="editor">puts "Some ruby code!"</textarea>
+      <input type="submit" value="Submit" id="submit"/>
+    </form>
+
+    <script src="./javascripts/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+      alert('running JS!');
+      var textarea = document.getElementsByName('editor');
+      textarea.hide();
+      var editor = ace.edit("rubycode");
+      editor.setTheme("ace/theme/twilight");
+      editor.getSession().setMode("ace/mode/ruby");
+      $('#submit').on('click', function() {
+        textarea.val(editor.getSession().getValue());
+      });
+    </script>
+
+  </body>
+</html>

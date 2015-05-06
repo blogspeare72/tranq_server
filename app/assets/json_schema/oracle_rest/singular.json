@@ -1,0 +1,29 @@
+{
+  
+  "id": "rest-schemas/singular#",
+  "title": "Singular",
+  "description": "Oracle base singular resource schema definition",
+  "type": "object",
+  "properties": {
+    "links": {
+      "type": "array",
+      "items": {
+        "$ref": "rest-schemas/link#"
+      }
+    }
+  },
+  "links": [
+    {
+        "href": "./",
+        "rel": "self"
+    },
+    {
+        "href": "./",
+        "rel": "canonical"
+    },
+    {
+      "href": "{$schema}",
+      "rel": "describedby"
+    }
+  ]
+}

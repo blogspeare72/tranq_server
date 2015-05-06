@@ -1,0 +1,10 @@
+# app/workers/tranquilize_worker.rb
+class TranquilizeWorker
+  include Sidekiq::Worker
+
+  def perform(run, count)
+    puts "Perform...."
+    puts run
+    puts "Done with perform..."
+  end
+end

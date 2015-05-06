@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "API Compliance Review Control File",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "response_as_body_allowed" :{"type":"string"},
+        "api_base_uri": {
+            "type": "string",
+            "title": "this is the base / root uri to use for all the HTTP requests made. The resource uri will be appended to this root to form the full endpoint for the request"
+        },
+        "proxy": {
+            "type": "string",
+            "title": "proxy to use if 'use_proxy' is true"
+        },
+        "use_proxy": {
+            "type": "string",
+            "title": "specifies if a proxy should be used for HTTP requests"
+        },
+        "run_root": {
+            "type": "string",
+            "title": "this is the root location for the run. Both the output directory and api_descriptor file should be specified relative to this location"
+        },
+        "api_descriptor_file": {
+            "type": "string",
+            "title": "location of the API Descriptor file relative to 'run_root'"
+        },
+        "oauth_file": {
+            "type": "string",
+            "title": "file containing oauth details (if needed)"
+        },
+        "output_directory": {
+            "type": "string",
+            "title": "location of output for this run relative to run_root"
+        },
+        "debug": {
+            "type": "object",
+            "title": "indicates what debug information should be added to the log file"
+        },
+        "authorization": {
+            "type": "string",
+            "enum": [
+                "oauth",
+                "none"
+            ],
+            "title": "authorization mechanism to use"
+        },
+        "action": {
+            "type": "string",
+            "title": "the action tranquilize should carry out (normally: 'check_compliace')"
+        },
+        "must_fix_conditions": {
+            "type": "object",
+            "title": "used in the generation of the html report. If the violation meets the 'must_fix_conditions' then it will be shown in the 'Must Fix' column of the report."
+        }
+    },
+    "required": [
+        "proxy",
+        "use_proxy",
+        "run_root",
+        "api_descriptor_file",
+        "oauth_file",
+        "output_directory",
+        "debug",
+        "action",
+        "authorization"
+    ]
+}

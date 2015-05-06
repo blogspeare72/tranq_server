@@ -1,0 +1,27 @@
+- model_class = Rule
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:code)
+      %th= model_class.human_attribute_name(:description)
+      %th= model_class.human_attribute_name(:sequence)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @rules.each do |rule|
+      %tr
+        %td= link_to rule.id, rule_path(rule)
+        %td= rule.name
+        %td= rule.code
+        %td= rule.description
+        %td= rule.sequence
+        %td=l rule.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_rule_path(rule), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), rule_path(rule), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_rule_path, :class => 'btn btn-primary'

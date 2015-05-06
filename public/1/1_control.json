@@ -1,0 +1,27 @@
+{
+  "proxy": "http://www-proxy.us.oracle.com:80",
+  "use_proxy": "true",
+  "action": "check_compliance",
+  "authorization": "oauth",
+  "response_as_body_allowed": "true",
+  "api_base_uri": "https://gatekeeper.staging.cloud.vitrue.com/",
+  "must_fix_conditions": {
+    "levels": [
+      "must",
+      "should"
+    ]
+  },
+  "debug": {
+    "show_curl": "true",
+    "show_response": "true",
+    "progress": "true",
+    "rules": "true",
+    "debug": "true",
+    "detail_debug": "true",
+    "worker": "true"
+  },
+  "run_root": "/home/arrundel/Documents/Oracle/SRM/apps/tranquilize/tranq_server/public",
+  "oauth_file": "/1/1_oauth.json",
+  "api_descriptor_file": "/1/1_api_descriptor.json",
+  "output_directory": "/1"
+}

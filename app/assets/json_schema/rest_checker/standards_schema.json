@@ -1,0 +1,101 @@
+{  
+   "$schema":"http://json-schema.org/draft-04/schema#",
+   "title":"Standard List",
+   "type":"object",
+   "properties":{  
+      "standards_metadata":{  
+         "type":"object"
+      },
+      "standards":{  
+         "type":"array",
+         "items":{  
+            "title":"Standard",
+            "type":"object",
+            "additionalProperties": false ,
+            "properties":{  
+	
+	
+               "id":{  
+                  "description":"The unique identifier for a standard which is a combination of the short_id and the code",
+                  "type":"string"
+               },
+               "short_id":{  
+                  "description":"very short unique id for a standard - you cant understand what the standard is from the short_id",
+                  "type":"string"
+               },
+               "code":{  
+                  "description":"unique capitalized phrase with underscores giving you an idea of what the standard is",
+                  "type":"string"
+               },
+               "standard":{  
+                  "type":"string"
+               },
+
+               "change_log":{  
+                   "type":["string","null"]
+               },
+               "category":{  
+                  "type":"string"
+               },
+
+               "description":{  
+                   "type":["string","null"]
+               },
+               "level":{  
+                  "type":"string",
+                  "enum":["should","must","might"]
+               },
+               "dependency":{  
+                  "type":["string","null"],
+                  "enum":["triggering","dependent",null]
+               },
+               "dependency_on":{  
+                  "type":["string","null"]
+               },
+               
+               "trigger_level":{  
+	              "description":"the level at which the triggering standards must be documented as supported on unsupported in api metadata",
+                  "type":["string","null"],
+                  "enum":["context","version","collection_resource","resource","singular_resource",null]
+               },
+               "scopes":{  
+                  "type":"array"
+               },
+               "v11_section":{  
+                  "type":"string"
+               },
+               "v12_section":{  
+                  "type":"string"
+               },
+               "introduced":{  
+                  "type":["string","null"]
+               },
+               "tranquilize":{  
+                  "type":"string",
+                  "enum":["Manual","Automated","Helper"]
+               },
+               "tranquilize_notes":{  
+                  "type":["string","null"]
+               },
+               "data":{  
+                   "type":["array","null"]
+               }
+            },
+            "required":[  
+               "id",
+               
+               "code",
+               "standard",
+               "level",
+               "category",
+               "dependency",
+               "dependency_on",
+               "v11_section",
+               "v12_section" ,
+               "tranquilize"   
+        
+            ]
+         }
+      }
+   }
+}

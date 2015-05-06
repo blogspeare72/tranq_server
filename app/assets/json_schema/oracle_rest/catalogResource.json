@@ -1,0 +1,110 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "instanceLink": {
+            "type": "object",
+            "description": "Metadata describing link description objects that MAY appear on json instance representation.",
+            "properties": {
+                "href": {
+                    "description": "Either a URI [RFC3986] or a URI Template [RFC6570]. If the value is a URI Template then the \"templated\" property should be true.",
+                    "type": "string"
+                },
+                "rel": {
+                    "description": "The name of the link relation that consumer may lookup as a secondary key (in addition to the type property) to retrieve actual link details, e.g. href or profile",
+                    "type": "string"
+                },
+                "templated": {
+                    "description": "Indicates the \"href\" property is a URI Template. If not specified, assume the \"href\" is a URI.",
+                    "type": "boolean"
+                },
+                "mediaType": {
+                    "description": "media type (as defined by RFC 2046) describing the link target",
+                    "type": "string"
+                },
+                "method": {
+                    "description": "method for requesting the target of the link (e.g. for HTTP this might be \"GET\" or \"DELETE\")",
+                    "type": "string"
+                },
+                "profile": {
+                    "description": "Indiciates the json-schema describing the resource expected when derefencing the target resource",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "href",
+                "rel"
+            ]
+        },
+        "singularResource": {
+            "title": "Singular Resource",
+            "description": "A single entity resource",
+            "type": "object",
+            "properties": {
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/instanceLink"
+                    }
+                }
+            }
+        }
+
+  "collectionBaseResource": {
+
+      "allOf": [
+
+        {
+
+          "$ref": "#/definitions/singularResource"
+
+        }
+
+      ],
+
+      "title": "Collection Resource",
+
+      "description": "A collection resource schema definition. ",
+
+      "properties": {
+
+        "items": {
+
+          "type": "array",
+
+          "items": {
+
+            "type": "object"
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+    },
+ 
+        "allOf": [
+            {
+                "$ref": "#/definitions/collectionResource"
+            }
+        ],
+        "title": "Catalog Resource",
+        "description": "Contains a list of metadata for resources",
+        "properties":
+    {
+        "items":
+        {
+            "type": "array",
+            "tems": {
+              "$ref": "rest-schemas/resource#"
+            }
+        }
+    }
+    
+}

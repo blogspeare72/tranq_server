@@ -1,0 +1,176 @@
+{
+  "contexts": [
+    {
+      "context": "admin",
+      "triggering_standards": [
+        {
+          "id": "O_038_VERSION_INFO_URIS",
+          "value": "unsupported"
+        }
+      ],
+      "stated_compliance": [
+        {
+          "id": "A001_CLIENT_SERVER",
+          "value": "compliant"
+        },
+        {
+          "id": "A002_STATELESS",
+          "value": "compliant"
+        },
+        {
+          "id": "A003_LAYERED",
+          "value": "compliant"
+        },
+        {
+          "id": "D001_JSON_SUPPORT",
+          "value": "compliant"
+        },
+        {
+          "id": "D002_XML_SUPPORT",
+          "value": "uncompliant"
+        }
+      ],
+      "versions": [
+        {
+          "version": "v1",
+          "triggering_standards": [
+            {
+              "id": "H001_PROVIDE_RESOURCE_METADATA",
+              "value": "unsupported"
+            }
+          ],
+          "stated_compliance": [
+
+          ],
+          "resources": [
+            {
+              "context": "admin",
+              "version": "v1",
+              "resource": "accounts",
+              "resource_type": "collection",
+              "parent_resource": null,
+              "supported_operations": {
+                "GET": {
+                }
+              },
+              "documented_uri": "admin/v1/accounts",
+              "pagination_links_location": "body",
+              "id_field": "id",
+              "triggering_standards": [
+                {
+                  "id": "G006_PARENT_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G001_SELF_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G003_CANON_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G009_PAGE_COLLECT",
+                  "value": "supported"
+                },
+                {
+                  "id": "I017_QPARAM_Q_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "I022_QPARAM_SUPPORTS_ORDERBY",
+                  "value": "supported"
+                },
+                {
+                  "id": "I019_QPARAM_TOTAL_RESULTS_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "I001_PARAM_TO_EXPAND_CHILD",
+                  "value": "supported"
+                },
+                {
+                  "id": "I005_QPARAM_SUPPORT_PROJECTION",
+                  "value": "supported"
+                },
+                {
+                  "id": "I025_QPARAM_LINKS_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "M001_ASYNC_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "M021_CREATE_FORM",
+                  "value": "supported"
+                }
+              ],
+              "stated_compliance": [
+
+              ]
+            },
+            {
+              "context": "admin",
+              "version": "v1",
+              "resource": "account",
+              "resource_type": "singular",
+              "parent_resource": null,
+              "supported_operations": {
+                "GET": {
+                }
+              },
+              "documented_uri": "admin/v1/accounts/:ID",
+              "id_field": "id",
+              "user_fields": [
+
+              ],
+              "boolean_fields": [
+
+              ],
+              "valid_id": "1",
+              "triggering_standards": [
+                {
+                  "id": "G001_SELF_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G003_CANON_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G006_PARENT_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "O_032_PAGE_COLLECT",
+                  "value": "supported"
+                },
+                {
+                  "id": "I001_PARAM_TO_EXPAND_CHILD",
+                  "value": "supported"
+                },
+                {
+                  "id": "I005_QPARAM_SUPPORT_PROJECTION",
+                  "value": "supported"
+                },
+                {
+                  "id": "O_074_QPARAM_LINKS_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "M001_ASYNC_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "M021_CREATE_FORM",
+                  "value": "supported"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

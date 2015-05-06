@@ -1,0 +1,779 @@
+{
+  "contexts": [
+    {
+      "context": "admin",
+      "triggering_standards": [
+        {
+          "id": "O_038_VERSION_INFO_URIS",
+          "value": "unsupported"
+        }
+      ],
+      "stated_compliance": [
+        {
+          "id": "A001_CLIENT_SERVER",
+          "value": "compliant"
+        },
+        {
+          "id": "A002_STATELESS",
+          "value": "compliant"
+        },
+        {
+          "id": "A003_LAYERED",
+          "value": "compliant"
+        },
+        {
+          "id": "D001_JSON_SUPPORT",
+          "value": "compliant"
+        },
+        {
+          "id": "D002_XML_SUPPORT",
+          "value": "uncompliant"
+        }
+      ],
+      "versions": [
+        {
+          "version": "v1",
+          "triggering_standards": [
+            {
+              "id": "H001_PROVIDE_RESOURCE_METADATA",
+              "value": "unsupported"
+            }
+          ],
+          "stated_compliance": [
+
+          ],
+          "resources": [
+            {
+              "context": "admin",
+              "version": "v1",
+              "resource": "accounts",
+              "resource_type": "collection",
+              "parent_resource": null,
+              "supported_operations": {
+                "GET": {
+                }
+              },
+              "documented_uri": "admin/v1/accounts",
+              "pagination_links_location": "body",
+              "id_field": "id",
+              "triggering_standards": [
+                {
+                  "id": "G006_PARENT_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G001_SELF_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G003_CANON_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G009_PAGE_COLLECT",
+                  "value": "supported"
+                },
+                {
+                  "id": "I017_QPARAM_Q_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "I022_QPARAM_SUPPORTS_ORDERBY",
+                  "value": "supported"
+                },
+                {
+                  "id": "I019_QPARAM_TOTAL_RESULTS_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "I001_PARAM_TO_EXPAND_CHILD",
+                  "value": "supported"
+                },
+                {
+                  "id": "I005_QPARAM_SUPPORT_PROJECTION",
+                  "value": "supported"
+                },
+                {
+                  "id": "I025_QPARAM_LINKS_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "M001_ASYNC_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "M021_CREATE_FORM",
+                  "value": "supported"
+                }
+              ],
+              "stated_compliance": [
+
+              ],
+              "standard_checks_required": [
+                {
+                  "checking_status": "unresolved",
+                  "id": "C002_COLLECT_PLURAL",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "E001_COLLECT_URI",
+                  "how_resolved": "automated",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "E002_COLLECT_URI_UNIQ",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "F005_COLLECTION_SCHEMA",
+                  "how_resolved": "automated",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G009_PAGE_COLLECT",
+                  "how_resolved": "supported",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G010_PAGE_LINK_LOCATION",
+                  "how_resolved": "automated",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G011_PAGE_NEXT_LINK",
+                  "how_resolved": "automated",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G012_PAGE_PREV_LINK",
+                  "how_resolved": "automated",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G013_PAGE_FIRST_LINK",
+                  "how_resolved": "automated",
+                  "compliant": "N",
+                  "violation_count": 4,
+                  "violations": [
+                    {
+                      "message": "First link may be provided if pagination is enabled. If provided, rel must be 'first'."
+                    },
+                    {
+                      "message": "First link may be provided if pagination is enabled. If provided, rel must be 'first'."
+                    },
+                    {
+                      "message": "First link may be provided if pagination is enabled. If provided, rel must be 'first'."
+                    },
+                    {
+                      "message": "First link may be provided if pagination is enabled. If provided, rel must be 'first'."
+                    }
+                  ]
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G014_PAGE_LAST_LINK",
+                  "how_resolved": "automated",
+                  "compliant": "N",
+                  "violation_count": 4,
+                  "violations": [
+                    {
+                      "message": "Last link may be provided if pagination is enabled. If provided, rel must be 'last'. "
+                    },
+                    {
+                      "message": "Last link may be provided if pagination is enabled. If provided, rel must be 'last'. "
+                    },
+                    {
+                      "message": "Last link may be provided if pagination is enabled. If provided, rel must be 'last'. "
+                    },
+                    {
+                      "message": "Last link may be provided if pagination is enabled. If provided, rel must be 'last'. "
+                    }
+                  ]
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "I008_PAGE_QPARAMS_LIMIT_AND_OFFSET",
+                  "how_resolved": "automated",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "I009_QPARAM_LIMIT_NAME",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "I019_QPARAM_TOTAL_RESULTS_SUPPORTED",
+                  "how_resolved": "supported",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "I020_QPARAM_TOTAL_RESULTS_NAME",
+                  "how_resolved": "automated",
+                  "compliant": "N",
+                  "violation_count": 1,
+                  "violations": [
+                    {
+                      "message": "Althougth TotalResults is stated as supported it is not returned when requested by setting totalResults=true. Check request / response with id = 821073441 for more details"
+                    }
+                  ]
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "_SRM002_FUNCTIONAL_ATTRIBUTES",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "_SRM003_STANDARD_NAMES_FOR_COMMON_OBJECTS",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "_SRM004_RESPOND_TO_STATED_OPERATIONS",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "B010_ADD_ERROR_IN_BODY_AND_EXCEPTION_TYPE",
+                  "how_resolved": "automated",
+                  "compliant": "N",
+                  "violation_count": 1,
+                  "violations": [
+                    {
+                      "message": "Error: '{\"errorCode\":404,\"errorMessage\":\"404 File Not Found\",\"errorHeaders\":null,\"errorBody\":\"\"}\n' not valid against oracle exception schema.  Check request / response with id = 404582071 for more details. Detailed Error [{:schema=>#<URI::File file:///home/arrundel/Documents/Oracle/SRM/apps/tranquilize/tranq_server/app/assets/json_schema/oracle_rest/rest_schemas_exception#>, :fragment=>\"#/\", :message=>\"The property '#/' did not contain a required property of 'type' in schema file:///home/arrundel/Documents/Oracle/SRM/apps/tranquilize/tranq_server/app/assets/json_schema/oracle_rest/rest_schemas_exception#\", :failed_attribute=>\"Required\"}, {:schema=>#<URI::File file:///home/arrundel/Documents/Oracle/SRM/apps/tranquilize/tranq_server/app/assets/json_schema/oracle_rest/rest_schemas_exception#>, :fragment=>\"#/\", :message=>\"The property '#/' did not contain a required property of 'title' in schema file:///home/arrundel/Documents/Oracle/SRM/apps/tranquilize/tranq_server/app/assets/json_schema/oracle_rest/rest_schemas_exception#\", :failed_attribute=>\"Required\"}]"
+                    }
+                  ]
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C001_NAMES_PRECISE",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C003_CAMEL_CASE",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C004_INIT_LOWER",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C005_ID_NAME",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C006_BOOL_FIELD",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C007_USER_FIELD",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "F001_REP_INCL_ID",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "F002_AMT_TYPE_USED",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "F003_CURR_TYPE_USED",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G001_SELF_LINK",
+                  "how_resolved": "supported",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G002_SELF_LINK_REL",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G003_CANON_LINK",
+                  "how_resolved": "supported",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G004_CANON_LINK_REL",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G005_CHILD_LINKS",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G006_PARENT_LINK",
+                  "how_resolved": "supported",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G007_PARENT_LINK_PARENT",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G008_RELATED_LINKS",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                }
+              ]
+            },
+            {
+              "context": "admin",
+              "version": "v1",
+              "resource": "account",
+              "resource_type": "singular",
+              "parent_resource": null,
+              "supported_operations": {
+                "GET": {
+                }
+              },
+              "documented_uri": "admin/v1/accounts/:ID",
+              "id_field": "id",
+              "user_fields": [
+
+              ],
+              "boolean_fields": [
+
+              ],
+              "valid_id": "1",
+              "triggering_standards": [
+                {
+                  "id": "G001_SELF_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G003_CANON_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "G006_PARENT_LINK",
+                  "value": "supported"
+                },
+                {
+                  "id": "O_032_PAGE_COLLECT",
+                  "value": "supported"
+                },
+                {
+                  "id": "I001_PARAM_TO_EXPAND_CHILD",
+                  "value": "supported"
+                },
+                {
+                  "id": "I005_QPARAM_SUPPORT_PROJECTION",
+                  "value": "supported"
+                },
+                {
+                  "id": "O_074_QPARAM_LINKS_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "M001_ASYNC_SUPPORTED",
+                  "value": "supported"
+                },
+                {
+                  "id": "M021_CREATE_FORM",
+                  "value": "supported"
+                }
+              ],
+              "standard_checks_required": [
+                {
+                  "checking_status": "resolved",
+                  "id": "E003_SINGULAR_URI",
+                  "how_resolved": "automated",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "F004_SINGULAR_SCHEMA",
+                  "how_resolved": "automated",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "_SRM002_FUNCTIONAL_ATTRIBUTES",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "_SRM003_STANDARD_NAMES_FOR_COMMON_OBJECTS",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "_SRM004_RESPOND_TO_STATED_OPERATIONS",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "B010_ADD_ERROR_IN_BODY_AND_EXCEPTION_TYPE",
+                  "how_resolved": "automated",
+                  "compliant": "N",
+                  "violation_count": 1,
+                  "violations": [
+                    {
+                      "message": "Error: '' not valid against oracle exception schema.  Check request / response with id = 113687607 for more details. Detailed Error [{:schema=>#<URI::File file:///home/arrundel/Documents/Oracle/SRM/apps/tranquilize/tranq_server/app/assets/json_schema/oracle_rest/rest_schemas_exception#>, :fragment=>\"#/\", :message=>\"The property '#/' of type NilClass did not match the following type: object in schema file:///home/arrundel/Documents/Oracle/SRM/apps/tranquilize/tranq_server/app/assets/json_schema/oracle_rest/rest_schemas_exception#\", :failed_attribute=>\"TypeV4\"}]"
+                    }
+                  ]
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C001_NAMES_PRECISE",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C003_CAMEL_CASE",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C004_INIT_LOWER",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "C005_ID_NAME",
+                  "how_resolved": "automated",
+                  "compliant": "N",
+                  "violation_count": 1,
+                  "violations": [
+                    {
+                      "message": "Got 404 on trying to access singular resource account"
+                    }
+                  ]
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C006_BOOL_FIELD",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "C007_USER_FIELD",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "F001_REP_INCL_ID",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "F002_AMT_TYPE_USED",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "F003_CURR_TYPE_USED",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G001_SELF_LINK",
+                  "how_resolved": "supported",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G002_SELF_LINK_REL",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G003_CANON_LINK",
+                  "how_resolved": "supported",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G004_CANON_LINK_REL",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G005_CHILD_LINKS",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "resolved",
+                  "id": "G006_PARENT_LINK",
+                  "how_resolved": "supported",
+                  "compliant": "Y",
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G007_PARENT_LINK_PARENT",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                },
+                {
+                  "checking_status": "unresolved",
+                  "id": "G008_RELATED_LINKS",
+                  "how_resolved": null,
+                  "compliant": null,
+                  "violation_count": 0
+                }
+              ]
+            }
+          ],
+          "standard_checks_required": [
+            {
+              "checking_status": "resolved",
+              "id": "_SRM001_VERSION_NAMING",
+              "how_resolved": "automated",
+              "compliant": "Y",
+              "violation_count": 0
+            },
+            {
+              "checking_status": "unresolved",
+              "id": "B010_ADD_ERROR_IN_BODY_AND_EXCEPTION_TYPE",
+              "how_resolved": null,
+              "compliant": null,
+              "violation_count": 0
+            },
+            {
+              "checking_status": "unresolved",
+              "id": "C001_NAMES_PRECISE",
+              "how_resolved": null,
+              "compliant": null,
+              "violation_count": 0
+            },
+            {
+              "checking_status": "unresolved",
+              "id": "C003_CAMEL_CASE",
+              "how_resolved": null,
+              "compliant": null,
+              "violation_count": 0
+            },
+            {
+              "checking_status": "unresolved",
+              "id": "C004_INIT_LOWER",
+              "how_resolved": null,
+              "compliant": null,
+              "violation_count": 0
+            },
+            {
+              "checking_status": "unresolved",
+              "id": "F007_VERSION_URI_RET_VERSION",
+              "how_resolved": null,
+              "compliant": null,
+              "violation_count": 0
+            },
+            {
+              "checking_status": "resolved",
+              "id": "H001_PROVIDE_RESOURCE_METADATA",
+              "how_resolved": "unsupported",
+              "compliant": "N",
+              "violation_count": 1,
+              "violations": [
+                {
+                  "message": "Elected not to follow this standard - and dependent standards"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "standard_checks_required": [
+        {
+          "checking_status": "resolved",
+          "id": "A001_CLIENT_SERVER",
+          "how_resolved": "stated",
+          "compliant": "Y",
+          "violation_count": 0
+        },
+        {
+          "checking_status": "resolved",
+          "id": "A002_STATELESS",
+          "how_resolved": "stated",
+          "compliant": "Y",
+          "violation_count": 0
+        },
+        {
+          "checking_status": "resolved",
+          "id": "A003_LAYERED",
+          "how_resolved": "stated",
+          "compliant": "Y",
+          "violation_count": 0
+        },
+        {
+          "checking_status": "unresolved",
+          "id": "B001_HTTP",
+          "how_resolved": null,
+          "compliant": null,
+          "violation_count": 0
+        },
+        {
+          "checking_status": "unresolved",
+          "id": "B010_ADD_ERROR_IN_BODY_AND_EXCEPTION_TYPE",
+          "how_resolved": null,
+          "compliant": null,
+          "violation_count": 0
+        },
+        {
+          "checking_status": "unresolved",
+          "id": "C001_NAMES_PRECISE",
+          "how_resolved": null,
+          "compliant": null,
+          "violation_count": 0
+        },
+        {
+          "checking_status": "unresolved",
+          "id": "C003_CAMEL_CASE",
+          "how_resolved": null,
+          "compliant": null,
+          "violation_count": 0
+        },
+        {
+          "checking_status": "unresolved",
+          "id": "C004_INIT_LOWER",
+          "how_resolved": null,
+          "compliant": null,
+          "violation_count": 0
+        },
+        {
+          "checking_status": "resolved",
+          "id": "D001_JSON_SUPPORT",
+          "how_resolved": "stated",
+          "compliant": "Y",
+          "violation_count": 0
+        },
+        {
+          "checking_status": "resolved",
+          "id": "D002_XML_SUPPORT",
+          "how_resolved": "stated",
+          "compliant": "N",
+          "violation_count": 1,
+          "violations": [
+            {
+              "message": "Stated as not compliant"
+            }
+          ]
+        },
+        {
+          "checking_status": "resolved",
+          "id": "F006_VERSIONS_URI_RET_COLLECT",
+          "how_resolved": "automated",
+          "compliant": "N",
+          "violation_count": 1,
+          "violations": [
+            {
+              "message": "There are no items in collection"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,657 @@
+-----> worker:
+Entered perform...
+-----> worker:
+Action defined in the control file is: check_compliance
+-----> worker:
+Entered checker...
+-----> progress:
+Loading and Validating Standards File ...
+-----> progress:
+Loading and Validating API Compliance Metadata ... 
+-----> progress:
+Loading OAuth Info ... 
+-----> detail_debug:
+Loading OAuth information with new schema validation.
+-----> detail_debug:
+Successfully loaded the oauth data with schema validation.
+-----> debug:
+{"base_uri"=>"https://gatekeeper.staging.cloud.vitrue.com", "client_id"=>"81f88983a6b640e651d5d0774409bb1985f502fffc79f8081f31421b19342bf3", "client_secret"=>"ec7df24010268a1e3d7ada2c6fd2d3e79093583d98029ea0d04ad0311a6ad94c", "callback_uri"=>"http://localhost:3000/gatekeeper/callback", "authorize_endpoint"=>"/oauth/authorize", "token_endpoint"=>"/oauth/token", "scope"=>"admin", "access_token"=>"5111b93d252f4f5e20ee939968f21536c3f76f78fd57d2d3307741bb031c17f3", "refresh_token"=>"e89fb30a0db3325bf628030bbbb659213df09d07ca602b19ca198b26322e9835", "code"=>"030f489ea27960695aaa14df96bc59c1113e61c6420311a3eb82adffd9d6d998"}
+-----> progress:
+Validating api metadata file ... 
+-----> progress:
+Noting standards requiring validation ...
+-----> debug:
+Adding StandardsHelper for admin(context)
+-----> detail_debug:
+Standard A001_CLIENT_SERVER applies to this object
+-----> detail_debug:
+Standard A002_STATELESS applies to this object
+-----> detail_debug:
+Standard A003_LAYERED applies to this object
+-----> detail_debug:
+Standard B001_HTTP applies to this object
+-----> detail_debug:
+Standard B010_ADD_ERROR_IN_BODY_AND_EXCEPTION_TYPE applies to this object
+-----> detail_debug:
+Standard C001_NAMES_PRECISE applies to this object
+-----> detail_debug:
+Standard C003_CAMEL_CASE applies to this object
+-----> detail_debug:
+Standard C004_INIT_LOWER applies to this object
+-----> detail_debug:
+Standard D001_JSON_SUPPORT applies to this object
+-----> detail_debug:
+Standard D002_XML_SUPPORT applies to this object
+-----> detail_debug:
+Standard F006_VERSIONS_URI_RET_COLLECT applies to this object
+-----> debug:
+Accounting for Stated Compliance for admin(context)
+-----> detail_debug:
+Processing Stated Compliance for standard {"id"=>"A001_CLIENT_SERVER", "value"=>"compliant"}
+-----> detail_debug:
+Processing Stated Compliance for standard {"id"=>"A002_STATELESS", "value"=>"compliant"}
+-----> detail_debug:
+Processing Stated Compliance for standard {"id"=>"A003_LAYERED", "value"=>"compliant"}
+-----> detail_debug:
+Processing Stated Compliance for standard {"id"=>"D001_JSON_SUPPORT", "value"=>"compliant"}
+-----> detail_debug:
+Processing Stated Compliance for standard {"id"=>"D002_XML_SUPPORT", "value"=>"uncompliant"}
+-----> debug:
+Adding StandardsHelper for v1(version)
+-----> detail_debug:
+Standard _SRM001_VERSION_NAMING applies to this object
+-----> detail_debug:
+Standard B010_ADD_ERROR_IN_BODY_AND_EXCEPTION_TYPE applies to this object
+-----> detail_debug:
+Standard C001_NAMES_PRECISE applies to this object
+-----> detail_debug:
+Standard C003_CAMEL_CASE applies to this object
+-----> detail_debug:
+Standard C004_INIT_LOWER applies to this object
+-----> detail_debug:
+Standard F007_VERSION_URI_RET_VERSION applies to this object
+-----> detail_debug:
+Standard H001_PROVIDE_RESOURCE_METADATA applies to this object
+-----> detail_debug:
+Standard H006_METADATA_CATALOG_FOR_VERSION applies to this object
+-----> debug:
+Accounting for Stated Compliance for v1(version)
+-----> debug:
+Adding StandardsHelper for admin(context) > v1(version) > accounts(resource)
+-----> detail_debug:
+Standard C002_COLLECT_PLURAL applies to this object
+-----> detail_debug:
+Standard E001_COLLECT_URI applies to this object
+-----> detail_debug:
+Standard E002_COLLECT_URI_UNIQ applies to this object
+-----> detail_debug:
+Standard F005_COLLECTION_SCHEMA applies to this object
+-----> detail_debug:
+Standard G009_PAGE_COLLECT applies to this object
+-----> detail_debug:
+Standard G010_PAGE_LINK_LOCATION applies to this object
+-----> detail_debug:
+Standard G011_PAGE_NEXT_LINK applies to this object
+-----> detail_debug:
+Standard G012_PAGE_PREV_LINK applies to this object
+-----> detail_debug:
+Standard G013_PAGE_FIRST_LINK applies to this object
+-----> detail_debug:
+Standard G014_PAGE_LAST_LINK applies to this object
+-----> detail_debug:
+Standard H002_RESOURCE_METADATA_URI applies to this object
+-----> detail_debug:
+Standard H003_RESOURCE_METADATA_JSON applies to this object
+-----> detail_debug:
+Standard I008_PAGE_QPARAMS_LIMIT_AND_OFFSET applies to this object
+-----> detail_debug:
+Standard I009_QPARAM_LIMIT_NAME applies to this object
+-----> detail_debug:
+Standard I019_QPARAM_TOTAL_RESULTS_SUPPORTED applies to this object
+-----> detail_debug:
+Standard I020_QPARAM_TOTAL_RESULTS_NAME applies to this object
+-----> debug:
+Accounting for Stated Compliance for admin(context) > v1(version) > accounts(resource)
+-----> debug:
+Adding StandardsHelper for admin(context) > v1(version) > accounts(resource)
+-----> detail_debug:
+Standard _SRM002_FUNCTIONAL_ATTRIBUTES applies to this object
+-----> detail_debug:
+Standard _SRM003_STANDARD_NAMES_FOR_COMMON_OBJECTS applies to this object
+-----> detail_debug:
+Standard _SRM004_RESPOND_TO_STATED_OPERATIONS applies to this object
+-----> detail_debug:
+Standard B010_ADD_ERROR_IN_BODY_AND_EXCEPTION_TYPE applies to this object
+-----> detail_debug:
+Standard C001_NAMES_PRECISE applies to this object
+-----> detail_debug:
+Standard C003_CAMEL_CASE applies to this object
+-----> detail_debug:
+Standard C004_INIT_LOWER applies to this object
+-----> detail_debug:
+Standard C005_ID_NAME applies to this object
+-----> detail_debug:
+Standard C006_BOOL_FIELD applies to this object
+-----> detail_debug:
+Standard C007_USER_FIELD applies to this object
+-----> detail_debug:
+Standard F001_REP_INCL_ID applies to this object
+-----> detail_debug:
+Standard F002_AMT_TYPE_USED applies to this object
+-----> detail_debug:
+Standard F003_CURR_TYPE_USED applies to this object
+-----> detail_debug:
+Standard G001_SELF_LINK applies to this object
+-----> detail_debug:
+Standard G002_SELF_LINK_REL applies to this object
+-----> detail_debug:
+Standard G003_CANON_LINK applies to this object
+-----> detail_debug:
+Standard G004_CANON_LINK_REL applies to this object
+-----> detail_debug:
+Standard G005_CHILD_LINKS applies to this object
+-----> detail_debug:
+Standard G006_PARENT_LINK applies to this object
+-----> detail_debug:
+Standard G007_PARENT_LINK_PARENT applies to this object
+-----> detail_debug:
+Standard G008_RELATED_LINKS applies to this object
+-----> debug:
+Accounting for Stated Compliance for admin(context) > v1(version) > accounts(resource)
+-----> debug:
+Adding StandardsHelper for admin(context) > v1(version) > account(resource)
+-----> detail_debug:
+Standard E003_SINGULAR_URI applies to this object
+-----> detail_debug:
+Standard F004_SINGULAR_SCHEMA applies to this object
+-----> debug:
+Accounting for Stated Compliance for admin(context) > v1(version) > account(resource)
+-----> debug:
+Adding StandardsHelper for admin(context) > v1(version) > account(resource)
+-----> detail_debug:
+Standard _SRM002_FUNCTIONAL_ATTRIBUTES applies to this object
+-----> detail_debug:
+Standard _SRM003_STANDARD_NAMES_FOR_COMMON_OBJECTS applies to this object
+-----> detail_debug:
+Standard _SRM004_RESPOND_TO_STATED_OPERATIONS applies to this object
+-----> detail_debug:
+Standard B010_ADD_ERROR_IN_BODY_AND_EXCEPTION_TYPE applies to this object
+-----> detail_debug:
+Standard C001_NAMES_PRECISE applies to this object
+-----> detail_debug:
+Standard C003_CAMEL_CASE applies to this object
+-----> detail_debug:
+Standard C004_INIT_LOWER applies to this object
+-----> detail_debug:
+Standard C005_ID_NAME applies to this object
+-----> detail_debug:
+Standard C006_BOOL_FIELD applies to this object
+-----> detail_debug:
+Standard C007_USER_FIELD applies to this object
+-----> detail_debug:
+Standard F001_REP_INCL_ID applies to this object
+-----> detail_debug:
+Standard F002_AMT_TYPE_USED applies to this object
+-----> detail_debug:
+Standard F003_CURR_TYPE_USED applies to this object
+-----> detail_debug:
+Standard G001_SELF_LINK applies to this object
+-----> detail_debug:
+Standard G002_SELF_LINK_REL applies to this object
+-----> detail_debug:
+Standard G003_CANON_LINK applies to this object
+-----> detail_debug:
+Standard G004_CANON_LINK_REL applies to this object
+-----> detail_debug:
+Standard G005_CHILD_LINKS applies to this object
+-----> detail_debug:
+Standard G006_PARENT_LINK applies to this object
+-----> detail_debug:
+Standard G007_PARENT_LINK_PARENT applies to this object
+-----> detail_debug:
+Standard G008_RELATED_LINKS applies to this object
+-----> debug:
+Accounting for Stated Compliance for admin(context) > v1(version) > account(resource)
+-----> progress:
+Constructing new rules object... 
+-----> progress:
+Constructed new rules object... 
+-----> progress:
+OAuth Code URL: https://gatekeeper.staging.cloud.vitrue.com/oauth/authorize?client_id=81f88983a6b640e651d5d0774409bb1985f502fffc79f8081f31421b19342bf3&scope=admin&redirect_uri=http://localhost:3000/gatekeeper/callback&response_type=code
+-----> progress:
+Verifying a valid access token ...
+-----> show_curl:
+(id=328793802) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer 5111b93d252f4f5e20ee939968f21536c3f76f78fd57d2d3307741bb031c17f3' 'https://gatekeeper.staging.cloud.vitrue.com//admin/v1/accounts' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 401 Unauthorized",
+  "http_version": "HTTP/1.1",
+  "code": "401",
+  "reason_msg": "Unauthorized",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:35 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "401 Unauthorized",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "Cache-Control": "no-cache, private",
+    "X-Request-Id": "923e9cb44de5eb48bf32b5fa9183872e",
+    "X-Runtime": "0.008960",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "900",
+    "X-Rack-Cache": "miss"
+  },
+  "body": " \n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> progress:
+Access Token Missing or Invalid ... trying to refresh
+-----> show_curl:
+  >> CURL COMMAND >> curl  -x http://www-proxy.us.oracle.com:80  -s -S -X POST -d grant_type=refresh_token                                          -d client_id=81f88983a6b640e651d5d0774409bb1985f502fffc79f8081f31421b19342bf3                                           -d client_secret=ec7df24010268a1e3d7ada2c6fd2d3e79093583d98029ea0d04ad0311a6ad94c                                           -d redirect_url=http://localhost:3000/gatekeeper/callback                                          -d refresh_token=e89fb30a0db3325bf628030bbbb659213df09d07ca602b19ca198b26322e9835                                          https://gatekeeper.staging.cloud.vitrue.com/oauth/token
+-----> show_response:
+    >> RESPONSE TXT >> {"access_token":"c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb","token_type":"bearer","expires_in":7200,"refresh_token":"851d0276594bad2aa53e617f941a8bf86883ca53c54e6d78e9e0f6de5e779817","scope":"admin"}
+-----> progress:
+Got access token using refresh token - updating oauth.json file with updated tokens
+-----> progress:
+Access Token Refreshed
+-----> worker:
+We have a valid access token, continuing to check the standards.
+-----> rules:
+Running dynamic rules
+-----> rules:
+Running rule: H006_METADATA_CATALOG_FOR_VERSION
+-----> rules:
+Finished rule: H006_METADATA_CATALOG_FOR_VERSION
+-----> rules:
+Running rule: F004_SINGULAR_SCHEMA
+-----> show_curl:
+(id=952742280) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts/1' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 404 Not Found",
+  "http_version": "HTTP/1.1",
+  "code": "404",
+  "reason_msg": "Not Found",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:37 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "404 Not Found",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "Cache-Control": "no-cache, private",
+    "X-Request-Id": "8d210c6ad6f0f296bb72078fa4e3908b",
+    "X-Runtime": "0.013775",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "900",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"errorCode\":404,\"errorMessage\":\"404 File Not Found\",\"errorHeaders\":null,\"errorBody\":\"\"}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> rules:
+Finished rule: F004_SINGULAR_SCHEMA
+-----> rules:
+Running rule: F005_COLLECTION_SCHEMA
+-----> show_curl:
+(id=649054011) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 200 OK",
+  "http_version": "HTTP/1.1",
+  "code": "200",
+  "reason_msg": "OK",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:38 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "200 OK",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "ETag": "\"2a64be3ebbe8f5d35f00ea50dcf6ae35\"",
+    "Cache-Control": "must-revalidate, private, max-age=0",
+    "X-Request-Id": "e65e4574480dd1b4957f9116403f898b",
+    "X-Runtime": "0.319366",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "899",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"items\":[{\"bundle_id\":9964,\"name\":\"  abcd\",\"description\":null},{\"bundle_id\":9950,\"name\":\" ABCD14\",\"description\":null},{\"bundle_id\":4398,\"name\":\"#2 ENGAGE_ONLY_ACCT\",\"description\":null},{\"bundle_id\":4548,\"name\":\"#3 ENGAGE enabled account\",\"description\":null},{\"bundle_id\":5437,\"name\":\"#ODC QA acct\",\"description\":null},{\"bundle_id\":5037,\"name\":\"#QAfinalstand\",\"description\":null},{\"bundle_id\":5034,\"name\":\"#zerotolerance\",\"description\":null},{\"bundle_id\":1302,\"name\":\"&quot;Oracle Social&quot; \",\"description\":null},{\"bundle_id\":9998,\"name\":\",\",\"description\":null},{\"bundle_id\":9905,\"name\":\"---\",\"description\":null},{\"bundle_id\":9906,\"name\":\"---\",\"description\":null},{\"bundle_id\":9994,\"name\":\".\",\"description\":null},{\"bundle_id\":10028,\"name\":\"/\",\"description\":null},{\"bundle_id\":8699,\"name\":\"000test000\",\"description\":null},{\"bundle_id\":1310,\"name\":\"1 soft delete\",\"description\":null},{\"bundle_id\":4435,\"name\":\"1-QA\",\"description\":null},{\"bundle_id\":525,\"name\":\"10 matthew\",\"description\":null},{\"bundle_id\":1261,\"name\":\"101 Design Pty Ltd\",\"description\":null},{\"bundle_id\":526,\"name\":\"110\",\"description\":null},{\"bundle_id\":527,\"name\":\"12/1/11 bundle\",\"description\":null}],\"count\":20,\"has_more\":true,\"links\":[{\"rel\":\"canonical\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts\"},{\"rel\":\"self\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts\"},{\"rel\":\"next\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts\"}]}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> rules:
+Finished rule: F005_COLLECTION_SCHEMA
+-----> rules:
+Running rule: F006_VERSIONS_URI_RET_COLLECT
+-----> rules:
+checking admin
+-----> show_curl:
+(id=668477500) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com//admin' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 200 OK",
+  "http_version": "HTTP/1.1",
+  "code": "200",
+  "reason_msg": "OK",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:38 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "200 OK",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "ETag": "\"a7f9e768a4fc978c9ad50d2601d141ce\"",
+    "Cache-Control": "must-revalidate, private, max-age=0",
+    "X-Request-Id": "4b5bad314b4fbcb12b7c82409fac9756",
+    "X-Runtime": "0.015754",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "899",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"canonicalLink\":\"/admin\",\"v1\":{\"canonicalLink\":\"/admin/v1\"}}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> rules:
+Finished rule: F006_VERSIONS_URI_RET_COLLECT
+-----> rules:
+Running rule: H003_RESOURCE_METADATA_JSON
+-----> show_curl:
+(id=404582071) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X OPTIONS  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 404 Not Found",
+  "http_version": "HTTP/1.1",
+  "code": "404",
+  "reason_msg": "Not Found",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:39 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "404 Not Found",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "Cache-Control": "no-cache",
+    "X-Request-Id": "882d1bdff1e999533e234a3100a6bebb",
+    "X-Runtime": "0.009027",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "898",
+    "X-Rack-Cache": "invalidate, pass"
+  },
+  "body": "{\"errorCode\":404,\"errorMessage\":\"404 File Not Found\",\"errorHeaders\":null,\"errorBody\":\"\"}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> rules:
+validate error against exception schema
+-----> rules:
+validate error. matches (false)in list () . matches(true) not in list (["200"])
+-----> detail_debug:
+Validating Error {"errorCode":404,"errorMessage":"404 File Not Found","errorHeaders":null,"errorBody":""}
+ against /home/arrundel/Documents/Oracle/SRM/apps/tranquilize/tranq_server/app/assets/json_schema/oracle_rest/rest_schemas_exception.json
+-----> rules:
+Finished rule: H003_RESOURCE_METADATA_JSON
+-----> rules:
+Running rule: CHECK_BOOLEAN_FIELDS
+-----> rules:
+This is checking the boolean fields end with the word flag
+-----> rules:
+Finished rule: CHECK_BOOLEAN_FIELDS
+-----> rules:
+Running rule: CHECK_USER_FIElDS
+-----> rules:
+Finished rule: CHECK_USER_FIElDS
+-----> rules:
+Running rule: CHECK_RESOURCE_URI_CASE
+-----> rules:
+Finished rule: CHECK_RESOURCE_URI_CASE
+-----> rules:
+Running rule: CHECK_RESOURCE_URIS
+-----> rules:
+Finished rule: CHECK_RESOURCE_URIS
+-----> rules:
+Running rule: CHECK_COLLECTIONS_PLURAL
+-----> rules:
+Finished rule: CHECK_COLLECTIONS_PLURAL
+-----> rules:
+Running rule: _SRM001_VERSION_NAMING
+-----> rules:
+Finished rule: _SRM001_VERSION_NAMING
+-----> rules:
+Running rule: C005_ID_NAME
+-----> rules:
+C005_ID_NAME:Hitting singular admin/v1/accounts/:ID admin/v1/accounts/1
+-----> show_curl:
+(id=113687607) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts/1' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 404 Not Found",
+  "http_version": "HTTP/1.1",
+  "code": "404",
+  "reason_msg": "Not Found",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:40 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "404 Not Found",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "Cache-Control": "no-cache, private",
+    "X-Request-Id": "738d30943a8072a97214f24618f73cc6",
+    "X-Runtime": "0.010877",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "898",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"errorCode\":404,\"errorMessage\":\"404 File Not Found\",\"errorHeaders\":null,\"errorBody\":\"\"}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> rules:
+C005_ID_NAME:check error matches schema if not 200
+-----> rules:
+validate error against exception schema
+-----> rules:
+validate error. matches (false)in list () . matches(true) not in list (["200"])
+-----> detail_debug:
+Validating Error  against /home/arrundel/Documents/Oracle/SRM/apps/tranquilize/tranq_server/app/assets/json_schema/oracle_rest/rest_schemas_exception.json
+-----> rules:
+Finished rule: C005_ID_NAME
+-----> rules:
+Running rule: H001_PROVIDE_RESOURCE_METADATA
+-----> rules:
+Finished rule: H001_PROVIDE_RESOURCE_METADATA
+-----> rules:
+Running rule: I020_QPARAM_TOTAL_RESULTS_NAME
+-----> show_curl:
+(id=821073441) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?totalResults=true' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 200 OK",
+  "http_version": "HTTP/1.1",
+  "code": "200",
+  "reason_msg": "OK",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:41 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "200 OK",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "ETag": "\"796f586086de42170659f1c1c9479a19\"",
+    "Cache-Control": "must-revalidate, private, max-age=0",
+    "X-Request-Id": "5d8d2576a410eddd0462de47250c6972",
+    "X-Runtime": "0.088850",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "897",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"items\":[{\"bundle_id\":9964,\"name\":\"  abcd\",\"description\":null},{\"bundle_id\":9950,\"name\":\" ABCD14\",\"description\":null},{\"bundle_id\":4398,\"name\":\"#2 ENGAGE_ONLY_ACCT\",\"description\":null},{\"bundle_id\":4548,\"name\":\"#3 ENGAGE enabled account\",\"description\":null},{\"bundle_id\":5437,\"name\":\"#ODC QA acct\",\"description\":null},{\"bundle_id\":5037,\"name\":\"#QAfinalstand\",\"description\":null},{\"bundle_id\":5034,\"name\":\"#zerotolerance\",\"description\":null},{\"bundle_id\":1302,\"name\":\"&quot;Oracle Social&quot; \",\"description\":null},{\"bundle_id\":9998,\"name\":\",\",\"description\":null},{\"bundle_id\":9905,\"name\":\"---\",\"description\":null},{\"bundle_id\":9906,\"name\":\"---\",\"description\":null},{\"bundle_id\":9994,\"name\":\".\",\"description\":null},{\"bundle_id\":10028,\"name\":\"/\",\"description\":null},{\"bundle_id\":8699,\"name\":\"000test000\",\"description\":null},{\"bundle_id\":1310,\"name\":\"1 soft delete\",\"description\":null},{\"bundle_id\":4435,\"name\":\"1-QA\",\"description\":null},{\"bundle_id\":525,\"name\":\"10 matthew\",\"description\":null},{\"bundle_id\":1261,\"name\":\"101 Design Pty Ltd\",\"description\":null},{\"bundle_id\":526,\"name\":\"110\",\"description\":null},{\"bundle_id\":527,\"name\":\"12/1/11 bundle\",\"description\":null}],\"count\":20,\"has_more\":true,\"links\":[{\"rel\":\"canonical\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts\"},{\"rel\":\"self\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?totalResults=true\"},{\"rel\":\"next\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?totalResults=true\"}]}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> rules:
+Finished rule: I020_QPARAM_TOTAL_RESULTS_NAME
+-----> rules:
+Running rule: check_collection_pagination_behaviour
+-----> show_curl:
+(id=576752847) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?totalResults=true&offset=0' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 200 OK",
+  "http_version": "HTTP/1.1",
+  "code": "200",
+  "reason_msg": "OK",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:41 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "200 OK",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "ETag": "\"6a05417c49c8d9c3b8b572e3a1574ccc\"",
+    "Cache-Control": "must-revalidate, private, max-age=0",
+    "X-Request-Id": "975a69088f9fdcc8c04c0ef5990eb18a",
+    "X-Runtime": "0.087584",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "896",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"items\":[{\"bundle_id\":9964,\"name\":\"  abcd\",\"description\":null},{\"bundle_id\":9950,\"name\":\" ABCD14\",\"description\":null},{\"bundle_id\":4398,\"name\":\"#2 ENGAGE_ONLY_ACCT\",\"description\":null},{\"bundle_id\":4548,\"name\":\"#3 ENGAGE enabled account\",\"description\":null},{\"bundle_id\":5437,\"name\":\"#ODC QA acct\",\"description\":null},{\"bundle_id\":5037,\"name\":\"#QAfinalstand\",\"description\":null},{\"bundle_id\":5034,\"name\":\"#zerotolerance\",\"description\":null},{\"bundle_id\":1302,\"name\":\"&quot;Oracle Social&quot; \",\"description\":null},{\"bundle_id\":9998,\"name\":\",\",\"description\":null},{\"bundle_id\":9905,\"name\":\"---\",\"description\":null},{\"bundle_id\":9906,\"name\":\"---\",\"description\":null},{\"bundle_id\":9994,\"name\":\".\",\"description\":null},{\"bundle_id\":10028,\"name\":\"/\",\"description\":null},{\"bundle_id\":8699,\"name\":\"000test000\",\"description\":null},{\"bundle_id\":1310,\"name\":\"1 soft delete\",\"description\":null},{\"bundle_id\":4435,\"name\":\"1-QA\",\"description\":null},{\"bundle_id\":525,\"name\":\"10 matthew\",\"description\":null},{\"bundle_id\":1261,\"name\":\"101 Design Pty Ltd\",\"description\":null},{\"bundle_id\":526,\"name\":\"110\",\"description\":null},{\"bundle_id\":527,\"name\":\"12/1/11 bundle\",\"description\":null}],\"count\":20,\"offset\":0,\"has_more\":true,\"links\":[{\"rel\":\"canonical\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts\"},{\"rel\":\"self\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=20&offset=0&totalResults=true\"},{\"rel\":\"next\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=20&offset=20&totalResults=true\"}]}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> show_curl:
+(id=380238682) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?offset=0&limit=9' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 200 OK",
+  "http_version": "HTTP/1.1",
+  "code": "200",
+  "reason_msg": "OK",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:42 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "200 OK",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "ETag": "\"1e8585632569113e3744a3a716e844ea\"",
+    "Cache-Control": "must-revalidate, private, max-age=0",
+    "X-Request-Id": "04e1e15c4e1036c06089679012c2ff60",
+    "X-Runtime": "0.081430",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "895",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"items\":[{\"bundle_id\":9964,\"name\":\"  abcd\",\"description\":null},{\"bundle_id\":9950,\"name\":\" ABCD14\",\"description\":null},{\"bundle_id\":4398,\"name\":\"#2 ENGAGE_ONLY_ACCT\",\"description\":null},{\"bundle_id\":4548,\"name\":\"#3 ENGAGE enabled account\",\"description\":null},{\"bundle_id\":5437,\"name\":\"#ODC QA acct\",\"description\":null},{\"bundle_id\":5037,\"name\":\"#QAfinalstand\",\"description\":null},{\"bundle_id\":5034,\"name\":\"#zerotolerance\",\"description\":null},{\"bundle_id\":1302,\"name\":\"&quot;Oracle Social&quot; \",\"description\":null},{\"bundle_id\":9998,\"name\":\",\",\"description\":null}],\"count\":9,\"limit\":9,\"offset\":0,\"has_more\":true,\"links\":[{\"rel\":\"canonical\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts\"},{\"rel\":\"self\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=0\"},{\"rel\":\"next\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=9\"}]}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> show_curl:
+(id=138339345) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=9' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 200 OK",
+  "http_version": "HTTP/1.1",
+  "code": "200",
+  "reason_msg": "OK",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:43 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "200 OK",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "ETag": "\"35df75e5de7cb1694ad428a9d6a392fc\"",
+    "Cache-Control": "must-revalidate, private, max-age=0",
+    "X-Request-Id": "f36fa0e758815c6bd95054164e5a35a0",
+    "X-Runtime": "0.175591",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "894",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"items\":[{\"bundle_id\":9905,\"name\":\"---\",\"description\":null},{\"bundle_id\":9906,\"name\":\"---\",\"description\":null},{\"bundle_id\":9994,\"name\":\".\",\"description\":null},{\"bundle_id\":10028,\"name\":\"/\",\"description\":null},{\"bundle_id\":8699,\"name\":\"000test000\",\"description\":null},{\"bundle_id\":1310,\"name\":\"1 soft delete\",\"description\":null},{\"bundle_id\":4435,\"name\":\"1-QA\",\"description\":null},{\"bundle_id\":525,\"name\":\"10 matthew\",\"description\":null},{\"bundle_id\":1261,\"name\":\"101 Design Pty Ltd\",\"description\":null}],\"count\":9,\"limit\":9,\"offset\":9,\"has_more\":true,\"links\":[{\"rel\":\"canonical\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts\"},{\"rel\":\"self\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=9\"},{\"rel\":\"next\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=18\"},{\"rel\":\"prev\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=0\"}]}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> show_curl:
+(id=992733818) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=0' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 200 OK",
+  "http_version": "HTTP/1.1",
+  "code": "200",
+  "reason_msg": "OK",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:44 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "200 OK",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "ETag": "\"1e8585632569113e3744a3a716e844ea\"",
+    "Cache-Control": "must-revalidate, private, max-age=0",
+    "X-Request-Id": "ce8d61aea4fbb6ffad67de62e43e3016",
+    "X-Runtime": "0.081554",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "893",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"items\":[{\"bundle_id\":9964,\"name\":\"  abcd\",\"description\":null},{\"bundle_id\":9950,\"name\":\" ABCD14\",\"description\":null},{\"bundle_id\":4398,\"name\":\"#2 ENGAGE_ONLY_ACCT\",\"description\":null},{\"bundle_id\":4548,\"name\":\"#3 ENGAGE enabled account\",\"description\":null},{\"bundle_id\":5437,\"name\":\"#ODC QA acct\",\"description\":null},{\"bundle_id\":5037,\"name\":\"#QAfinalstand\",\"description\":null},{\"bundle_id\":5034,\"name\":\"#zerotolerance\",\"description\":null},{\"bundle_id\":1302,\"name\":\"&quot;Oracle Social&quot; \",\"description\":null},{\"bundle_id\":9998,\"name\":\",\",\"description\":null}],\"count\":9,\"limit\":9,\"offset\":0,\"has_more\":true,\"links\":[{\"rel\":\"canonical\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts\"},{\"rel\":\"self\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=0\"},{\"rel\":\"next\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=9\"}]}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> show_curl:
+(id=769124587) curl  -x http://www-proxy.us.oracle.com:80   -i -s -S -k  -X GET  -H 'Accept: application/json'  -H 'Authorization:Bearer c08167948e9f82f7b8ab0ddb0c2971b8ecd6b38e80f8ca7c0049669558274fbb' 'https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?offset=0&limit=9' 
+-----> show_response:
+{
+  "status_line": "HTTP/1.1 200 OK",
+  "http_version": "HTTP/1.1",
+  "code": "200",
+  "reason_msg": "OK",
+  "headers": {
+    "Server": "nginx/1.4.2",
+    "Date": "Tue, 05 May 2015 01:28:45 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Status": "200 OK",
+    "X-UA-Compatible": "IE=Edge,chrome=1",
+    "ETag": "\"1e8585632569113e3744a3a716e844ea\"",
+    "Cache-Control": "must-revalidate, private, max-age=0",
+    "X-Request-Id": "3be31a9633099c8d0419388d035d7b4e",
+    "X-Runtime": "0.079814",
+    "X-RateLimit-Limit": "900",
+    "X-RateLimit-Remaining": "892",
+    "X-Rack-Cache": "miss"
+  },
+  "body": "{\"items\":[{\"bundle_id\":9964,\"name\":\"  abcd\",\"description\":null},{\"bundle_id\":9950,\"name\":\" ABCD14\",\"description\":null},{\"bundle_id\":4398,\"name\":\"#2 ENGAGE_ONLY_ACCT\",\"description\":null},{\"bundle_id\":4548,\"name\":\"#3 ENGAGE enabled account\",\"description\":null},{\"bundle_id\":5437,\"name\":\"#ODC QA acct\",\"description\":null},{\"bundle_id\":5037,\"name\":\"#QAfinalstand\",\"description\":null},{\"bundle_id\":5034,\"name\":\"#zerotolerance\",\"description\":null},{\"bundle_id\":1302,\"name\":\"&quot;Oracle Social&quot; \",\"description\":null},{\"bundle_id\":9998,\"name\":\",\",\"description\":null}],\"count\":9,\"limit\":9,\"offset\":0,\"has_more\":true,\"links\":[{\"rel\":\"canonical\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts\"},{\"rel\":\"self\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=0\"},{\"rel\":\"next\",\"href\":\"https://gatekeeper.staging.cloud.vitrue.com/admin/v1/accounts?limit=9&offset=9\"}]}\n",
+  "has_headers": true,
+  "has_body": true
+}
+-----> rules:
+Finished rule: check_collection_pagination_behaviour
+-----> progress:
+writing augmented api metadata file to 1/augmented/api_descriptor_1.json. Contains information on standards checked and violations found
+-----> progress:
+mining data to produce formatted html report at 1/reports/report.html 
+-----> worker:
+Leaving checker...
+-----> worker:
+Leaving perform...

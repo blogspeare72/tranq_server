@@ -1,0 +1,35 @@
+= form_for @run, :html => { :class => 'form-vertical',:role=>'form' } do |f|
+  -if @run.errors.any?
+    .row
+      .span12
+        .alert.alert-error
+          %ul
+            - @run.errors.full_messages.each do |msg|
+              %li=msg
+  .row
+    .span6
+      .form-group
+        = f.label :name
+        = f.text_field :name,:class => 'form-control span3'
+    .span6
+      .form-group
+        = f.label :description, :class => 'control-label'
+        = f.text_field :description, :class => 'form-control row-fluid', :cols => 50
+  .row
+    .span12
+      .form-group
+        = f.label :control_file, link_to('Control Instructions','http://confluence.oraclecorp.com/confluence/x/GaPSAg')
+        = f.text_area :control_file, :class => 'form-control row-fluid',  :style => 'font-family:monospace', :rows =>15
+  .row
+    .span12 
+      .form-group
+        = f.label  :api_descriptor, link_to('API Descriptor','http://confluence.oraclecorp.com/confluence/x/GaPSAg')
+        = f.text_area :api_descriptor, :class => 'form-control row-fluid', :style => 'font-family:monospace', :rows =>"30" 
+  .row
+    .span12 
+      .form-group
+        = f.label :oauth ,link_to('OAuth Information','http://confluence.oraclecorp.com/confluence/x/GaPSAg')
+        = f.text_area :oauth, :class => 'form-control row-fluid', :style => 'font-family:monospace', :rows =>"5" 
+  .form-actions
+    = f.submit "Save", :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), runs_path, :class => 'btn'
